@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Leadership - Punnyam Charitable Trust</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Meet the dedicated leadership team behind Punnyam Charitable Trust who are committed to making a difference in the lives of the underprivileged.">
+    <meta name="keywords" content="Punnyam Charitable Trust, leadership team, board members, trustees, charity leaders, Kerala charity">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Leadership Team - Punnyam Charitable Trust">
+    <meta property="og:description" content="Meet the dedicated leaders who guide Punnyam Charitable Trust's mission to serve the underprivileged.">
+    <meta property="og:url" content="https://www.punnyamtrust.org/leaders">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* Additional styles specific to the leaders page */
+        .leader-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            background-color: #fff;
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .leader-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .leader-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .leader-card:hover .leader-image {
+            transform: scale(1.05);
+        }
+        
+        .leader-role-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-top-left-radius: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .leader-info {
+            padding: 25px;
+        }
+        
+        .leader-name {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .leader-bio {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .leader-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .leader-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .leader-social a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .leader-quote {
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-color);
+            margin-top: 15px;
+            color: #666;
+        }
+        
+        .section-leader-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .leader-highlight {
+            background-color: rgba(var(--primary-rgb), 0.05);
+        }
+        
+        .leader-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .leader-stat {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        
+        .leader-stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .leader-stat-text {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .leader-image-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Placeholder - Will be loaded by JavaScript -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-shape"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <div class="hero-text">
+                        <span class="hero-tagline">Our Team</span>
+                        <h1>Leadership</h1>
+                        <p class="lead">Meet the dedicated individuals who guide our mission with vision, compassion, and unwavering commitment to serving the underprivileged.</p>
+                        <div class="hero-badges">
+                            <span class="badge"><i class="fas fa-users"></i> Board of Trustees</span>
+                            <span class="badge"><i class="fas fa-hands-helping"></i> Executive Committee</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image-wrapper">
+                    <div class="hero-image-frame">
+                        <div class="hero-image-inner">
+                            <img src="../assets/images/children_smiling.jpg" alt="Punnyam Trust Leadership" class="hero-image">
+                            <div class="hero-image-dots"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Introduction Section -->
+    <section class="section" id="leadership-intro">
+        <div class="container">
+            <div class="text-center section-leader-intro">
+                <span class="badge bg-primary mb-2">Our Guiding Force</span>
+                <h2 class="text-primary fw-bold mb-3">Leadership with Purpose</h2>
+                <p class="lead">Our leadership team brings together diverse expertise, profound compassion, and a shared commitment to our mission. Each leader contributes unique skills and perspectives that help drive our organization forward.</p>
+                <div class="section-divider mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board of Trustees Section -->
+    <section class="section bg-light" id="board-trustees">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="fw-bold">Board of Trustees</h3>
+                <p class="text-muted">The visionaries who provide strategic direction and governance</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Trustee 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="leader-card">
+                        <div class="leader-image-container">
+                            <img src="../assets/images/children_smiling.jpg" alt="Fr. Thomas Vadakkel" class="leader-image">
+                            <div class="leader-role-badge">Chairman</div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">Fr. Thomas Vadakkel</h4>
+                            <p class="leader-bio">With over 30 years of experience in social service, Fr. Thomas has been the driving force behind Punnyam Trust since its inception in 2003. His vision and dedication have transformed countless lives.</p>
+                            <div class="leader-quote">
+                                "Our greatest fulfillment comes from serving those who need us the most."
+                            </div>
+                            <div class="leader-social mt-3">
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trustee 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="leader-card">
+                        <div class="leader-image-container">
+                            <img src="../assets/images/contact.jpg" alt="Dr. Anita Kurien" class="leader-image">
+                            <div class="leader-role-badge">Vice Chairperson</div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">Dr. Anita Kurien</h4>
+                            <p class="leader-bio">A renowned pediatrician with a passion for child welfare, Dr. Anita brings medical expertise and compassionate leadership to our healthcare initiatives and children's programs.</p>
+                            <div class="leader-quote">
+                                "Every child deserves a healthy start and the opportunity to thrive."
+                            </div>
+                            <div class="leader-social mt-3">
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trustee 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="leader-card">
+                        <div class="leader-image-container">
+                            <img src="../assets/images/children_smiling.jpg" alt="Mr. Rajesh Menon" class="leader-image">
+                            <div class="leader-role-badge">Treasurer</div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">Mr. Rajesh Menon</h4>
+                            <p class="leader-bio">A financial expert with 25 years of experience in banking and non-profit management, Rajesh ensures transparent financial governance and sustainable resource allocation.</p>
+                            <div class="leader-quote">
+                                "Financial transparency is the foundation of trust in charitable work."
+                            </div>
+                            <div class="leader-social mt-3">
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Committee Section -->
+    <section class="section" id="executive-committee">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="fw-bold">Executive Committee</h3>
+                <p class="text-muted">The dedicated team that implements our mission on the ground</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Executive 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="leader-card">
+                        <div class="leader-image-container">
+                            <img src="../assets/images/contact.jpg" alt="Ms. Priya Thomas" class="leader-image">
+                            <div class="leader-role-badge">Secretary</div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">Ms. Priya Thomas</h4>
+                            <p class="leader-bio">A former social worker with expertise in child welfare, Priya oversees daily operations and coordinates our various programs with efficiency and heart.</p>
+                            <div class="leader-social mt-3">
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Executive 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="leader-card">
+                        <div class="leader-image-container">
+                            <img src="../assets/images/children_smiling.jpg" alt="Mr. Joseph Mathew" class="leader-image">
+                            <div class="leader-role-badge">Program Director</div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">Mr. Joseph Mathew</h4>
+                            <p class="leader-bio">With a background in education and community development, Joseph designs and implements our educational and rehabilitation programs.</p>
+                            <div class="leader-social mt-3">
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Executive 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="leader-card">
+                        <div class="leader-image-container">
+                            <img src="../assets/images/contact.jpg" alt="Dr. Sanjay Pillai" class="leader-image">
+                            <div class="leader-role-badge">Medical Coordinator</div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">Dr. Sanjay Pillai</h4>
+                            <p class="leader-bio">A general physician who volunteers his time to coordinate our medical assistance programs and health camps for the underprivileged.</p>
+                            <div class="leader-social mt-3">
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Executive 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="leader-card">
+                        <div class="leader-image-container">
+                            <img src="../assets/images/children_smiling.jpg" alt="Ms. Lakshmi Nair" class="leader-image">
+                            <div class="leader-role-badge">Outreach Coordinator</div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">Ms. Lakshmi Nair</h4>
+                            <p class="leader-bio">A communications expert who manages our community outreach, volunteer coordination, and public relations with enthusiasm and creativity.</p>
+                            <div class="leader-social mt-3">
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Leader Section -->
+    <section class="section bg-light" id="featured-leader">
+        <div class="container">
+            <div class="row align-items-center leader-highlight p-4 rounded-3">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="rounded-circle overflow-hidden mx-auto" style="width: 250px; height: 250px;">
+                        <img src="../assets/images/children_smiling.jpg" alt="Fr. Thomas Vadakkel" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h3 class="text-primary fw-bold">Fr. Thomas Vadakkel: The Visionary Behind Punnyam Trust</h3>
+                    <p class="lead">For over two decades, Fr. Thomas has dedicated his life to serving the underprivileged in Kerala. His journey began with a simple vision: to create a haven for orphaned children that would provide not just shelter, but love, education, and opportunities.</p>
+                    <p>Under his leadership, Punnyam Trust has expanded from a small initiative to a comprehensive charitable organization that has touched thousands of lives through its various programs.</p>
+                    
+                    <div class="leader-stats">
+                        <div class="leader-stat">
+                            <span class="leader-stat-number">20+</span>
+                            <span class="leader-stat-text">Years of Service</span>
+                        </div>
+                        <div class="leader-stat">
+                            <span class="leader-stat-number">5,000+</span>
+                            <span class="leader-stat-text">Lives Impacted</span>
+                        </div>
+                        <div class="leader-stat">
+                            <span class="leader-stat-number">12</span>
+                            <span class="leader-stat-text">Awards & Recognitions</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="contact.html" class="btn btn-primary">Contact Fr. Thomas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Our Team Section -->
+    <section class="section text-center" id="join-team">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Join Our Leadership Team</h2>
+            <p class="lead mb-4 mx-auto" style="max-width: 700px;">We're always looking for passionate individuals who share our vision and values. If you're interested in contributing your skills and expertise to our cause, we'd love to hear from you.</p>
+            <a href="contact.html" class="btn btn-lg btn-warning text-white fw-bold">Get Involved <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder - Will be loaded by JavaScript -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+    <!-- Main JavaScript -->
+    <script src="../js/main.js" defer></script>
+</body>
+</html> 

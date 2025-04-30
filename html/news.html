@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - Punnyam Charitable Trust</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Stay updated with the latest news, upcoming events, and media coverage of Punnyam Charitable Trust's activities and initiatives.">
+    <meta name="keywords" content="Punnyam Trust news, charity events, upcoming programs, media coverage, Kerala charity news">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="News & Events - Punnyam Charitable Trust">
+    <meta property="og:description" content="Latest updates and upcoming events from Punnyam Charitable Trust">
+    <meta property="og:url" content="https://www.punnyamtrust.org/news">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* Additional styles specific to the news page */
+        .news-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            background: #fff;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-image-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-image {
+            transform: scale(1.05);
+        }
+        
+        .news-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .category-event {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .category-news {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .category-media {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .news-date {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .news-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .featured-news {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .featured-news-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            color: white;
+        }
+        
+        .featured-news::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+        }
+        
+        .event-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .event-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid white;
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .media-mention {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .media-mention:hover {
+            transform: translateX(10px);
+            background-color: #f0f0f0;
+        }
+        
+        .media-source {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .media-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        .filter-button {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 5px 10px;
+        }
+        
+        .filter-button.active,
+        .filter-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .featured-news-content {
+                padding: 20px;
+            }
+            
+            .news-image-container {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Placeholder - Will be loaded by JavaScript -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-shape"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <div class="hero-text">
+                        <span class="hero-tagline">Stay Updated</span>
+                        <h1>News & Events</h1>
+                        <p class="lead">Keep up with the latest happenings, upcoming events, and media coverage of Punnyam Charitable Trust's initiatives and impact.</p>
+                        <div class="hero-badges">
+                            <span class="badge"><i class="fas fa-newspaper"></i> Latest News</span>
+                            <span class="badge"><i class="fas fa-calendar-alt"></i> Upcoming Events</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image-wrapper">
+                    <div class="hero-image-frame">
+                        <div class="hero-image-inner">
+                            <img src="../assets/images/children_smiling.jpg" alt="Punnyam Trust News" class="hero-image">
+                            <div class="hero-image-dots"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured News Section -->
+    <section class="section" id="featured-news">
+        <div class="container">
+            <div class="featured-news">
+                <img src="../assets/images/news/featured.jpg" alt="20 Years of Service" class="w-100" style="height: 500px; object-fit: cover;">
+                <div class="featured-news-content">
+                    <span class="badge bg-warning mb-3">Featured Story</span>
+                    <h2 class="display-5 fw-bold mb-3">Punnyam Trust Celebrates 20 Years of Service</h2>
+                    <p class="lead mb-4">Two decades of transforming lives through compassion, dedication, and unwavering commitment to serving the underprivileged.</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="#" class="btn btn-light">Read More</a>
+                        <span><i class="fas fa-calendar-alt me-2"></i>December 15, 2023</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Filters Section -->
+    <section class="section bg-light" id="news-filters">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="d-flex justify-content-center flex-wrap">
+                    <button class="filter-button active">All Updates</button>
+                    <button class="filter-button">Latest News</button>
+                    <button class="filter-button">Upcoming Events</button>
+                    <button class="filter-button">Media Coverage</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="section" id="latest-news">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Updates</h2>
+            <div class="row g-4">
+                <!-- News Item 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+                        <div class="news-image-container">
+                            <img src="../assets/images/news/news1.jpg" alt="Kerala Govt Recognition" class="img-fluid">
+                            <span class="news-category category-event">Event</span>
+                            <div class="news-date">
+                                <i class="fas fa-calendar-alt me-2"></i>March 15, 2024
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">Annual Charity Concert 2024</h3>
+                            <p class="news-excerpt">Join us for an evening of music and hope as we raise funds for our children's education program.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+                        <div class="news-image-container">
+                            <img src="../assets/images/news/news2.jpg" alt="New Education Program" class="img-fluid">
+                            <span class="news-category category-news">News</span>
+                            <div class="news-date">
+                                <i class="fas fa-calendar-alt me-2"></i>March 10, 2024
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">New Medical Camp Initiative</h3>
+                            <p class="news-excerpt">Launching monthly medical camps in rural areas to provide free healthcare services.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+                        <div class="news-image-container">
+                            <img src="../assets/images/news/news3.jpg" alt="Annual Charity Drive" class="img-fluid">
+                            <span class="news-category category-media">Media</span>
+                            <div class="news-date">
+                                <i class="fas fa-calendar-alt me-2"></i>March 5, 2024
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">Trust Featured in Kerala Chronicle</h3>
+                            <p class="news-excerpt">Our rehabilitation program receives recognition in leading newspaper.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="section bg-light" id="upcoming-events">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Upcoming Events</h2>
+                    <div class="event-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">March 20, 2024</div>
+                            <h4>Free Medical Camp</h4>
+                            <p>Comprehensive health check-up camp at Vazhoor Community Center</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Register Now</a>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">April 5, 2024</div>
+                            <h4>Educational Workshop</h4>
+                            <p>Career guidance session for high school students</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">April 15, 2024</div>
+                            <h4>Donor Meet 2024</h4>
+                            <p>Annual gathering of our supporters and benefactors</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">RSVP</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Media Mentions</h2>
+                    <div class="media-mentions">
+                        <div class="media-mention">
+                            <h4>"Transforming Lives: Punnyam Trust's Journey"</h4>
+                            <p class="media-source">Malayala Manorama</p>
+                            <p>An in-depth look at how Punnyam Trust has been making a difference in Kerala's charitable sector.</p>
+                            <div class="media-date">February 28, 2024</div>
+                        </div>
+                        
+                        <div class="media-mention">
+                            <h4>"Leading the Way in Child Welfare"</h4>
+                            <p class="media-source">Mathrubhumi</p>
+                            <p>Feature article on our Bala Bhavanam initiative and its impact on orphaned children.</p>
+                            <div class="media-date">February 15, 2024</div>
+                        </div>
+                        
+                        <div class="media-mention">
+                            <h4>"20 Years of Service: A Special Report"</h4>
+                            <p class="media-source">Kerala Chronicle</p>
+                            <p>Special coverage of Punnyam Trust's two decades of charitable work.</p>
+                            <div class="media-date">January 30, 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section text-center" id="newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Stay Updated</h2>
+                    <p class="lead mb-4">Subscribe to our newsletter to receive the latest news and updates about our work.</p>
+                    <form class="d-flex gap-2 justify-content-center">
+                        <input type="email" class="form-control" placeholder="Enter your email" style="max-width: 300px;">
+                        <button type="submit" class="btn btn-warning text-white">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder - Will be loaded by JavaScript -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+    <!-- Main JavaScript -->
+    <script src="../js/main.js" defer></script>
+    
+    <!-- News Page Specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter buttons functionality
+            const filterButtons = document.querySelectorAll('.filter-button');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Add filter functionality here
+                    // This would filter the news items based on the selected category
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

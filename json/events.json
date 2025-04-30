@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Annual Charity Drive",
+    "description": "Join us for our annual charity drive to raise funds for children's education",
+    "image": "event1.jpg",
+    "date": "2025-05-15"
+  },
+  {
+    "title": "Health Camp",
+    "description": "Free health checkups for underprivileged children in Kottayam",
+    "image": "event2.jpg",
+    "date": "2025-06-10"
+  },
+  {
+    "title": "Educational Workshop",
+    "description": "Skills development workshop for teenagers at Punnyam Bala Bhavanam",
+    "image": "event3.jpg",
+    "date": "2025-06-25"
+  }
+]
